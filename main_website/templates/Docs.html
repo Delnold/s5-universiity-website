@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "Docs.css" %}" media="screen">
+{% endblock %}
+{% block content %}
+    <section class="u-black u-clearfix u-section-1" id="sec-8703">
+      <div class="u-clearfix u-sheet u-sheet-1" style="justify-content: center; align-items: center;gap: 5px;display: flex; margin-top: 100px; flex-wrap: wrap; margin-bottom: 100px; row-gap: 35px;" >
+          {% for champ in icons_champ %}
+              <a style="width: 120px; height: 120px" href={% url 'champion' champ.champion_name %}>
+              <img width="120px" height="120px" src={{ champ.champion_icon.url }}>
+              <h6 style="margin-top: -4px; text-align: center">{{ champ.champion_name }}</h6>
+              </a>
+          {% endfor %}
+
+      </div>
+    </section>
+{% endblock %}

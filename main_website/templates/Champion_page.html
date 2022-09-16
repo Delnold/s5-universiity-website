@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+     <link rel="stylesheet" href="{% static "Champion_page.css" %}" media="screen">
+{% endblock %}
+{% block content %}
+    <style>
+    .u-section-1 .u-image-1 {
+        background-image: url({{ icons_champ.champion_icon.url }});
+        background-position: 50% 50%;
+        min-height: 418px;
+}
+    </style>
+<section class="u-black u-clearfix u-section-1" id="sec-ff1a">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-align-center u-clearfix u-gutter-0 u-layout-spacing-vertical u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <div class="u-layout-row">
+              <div class="u-container-style u-image u-layout-cell u-right-cell u-size-20 u-image-1" src="" data-image-width="736" data-image-height="811">
+                <div class="u-container-layout u-container-layout-1"></div>
+              </div>
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-40 u-layout-cell-2">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <h2 class="u-text u-text-default u-text-1">{{ icons_champ.champion_name }}</h2>
+                  <p class="u-text u-text-2">{{ icons_champ.champion_desc }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="u-align-center u-black u-clearfix u-section-2" id="sec-96f1">
+      <div class="u-align-left u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-right u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+          <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%; padding-top: 30px;">
+            <iframe src={{ icons_champ.link_to_presentation }} style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen="" scrolling="no" allow="encrypted-media;"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
