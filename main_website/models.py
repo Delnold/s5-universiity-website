@@ -7,5 +7,7 @@ class Champion(models.Model):
     current_patch = models.CharField(max_length=15)
     champion_desc = models.TextField(max_length=300, null=True)
 
+    def __str__(self):
+        return self.champion_name
 
 # Create your models here.
