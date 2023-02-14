@@ -13,14 +13,5 @@ def index(request):
 def about(request):
     return render(request, 'About.html', {"icons": icons, "icons_about": icons_about})
 
-def docs(request):
-    icons_champ = Champion.objects.all()
-    return render(request,'Docs.html', {"icons": icons, 'icons_champ': icons_champ})
-def test(request, slug):
-    try:
-        icons_champ = Champion.objects.get(champion_name = slug)
-    except Champion.DoesNotExist:
-        raise Http404
-    return render(request,'Champion_page.html', {"icons": icons, 'icons_champ': icons_champ, 'slug': slug})
 
 # Create your views here.
