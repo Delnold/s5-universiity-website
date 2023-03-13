@@ -6,9 +6,8 @@
 {% block content %}
     <style>
     .u-section-1 .u-image-1 {
-        background-image: url({{ icons_champ.champion_icon.url }});
-        background-position: 50% 50%;
-        min-height: 418px;
+        background-image: url({{ champions.champion_icon.url }});
+        background-size: 300px 300px;
 }
     </style>
 <section class="u-black u-clearfix u-section-1" id="sec-ff1a">
@@ -21,8 +20,41 @@
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-40 u-layout-cell-2">
                 <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h2 class="u-text u-text-default u-text-1">{{ icons_champ.champion_name }}</h2>
-                  <p class="u-text u-text-2">{{ icons_champ.champion_desc }}</p>
+                  <h2 class="u-text u-text-default u-text-1">{{ champions.champion_name }}</h2>
+                   <div class="skill_row">
+                    {% for skill in skills %}
+                        <div class="skill_box">
+                            <img width="60px" height="60px" src={{ skill.skill_icon.url }}>
+                        </div>
+                        {% if skill.skill_cost == None and skill.skill_range == None and skill.skill_cooldown == None %}
+                            <div class="info-box">
+                            <h4 style="font-weight: bold">{{ skill.skill_name }}</h4>
+                            <p>{{ skill.skill_description }}</p>
+                        </div>
+                        {% else%}
+                        <div class="info-box">
+                            <h4 style="font-weight: bold">{{ skill.skill_name }}</h4>
+                            <p>Cooldown: {{ skill.skill_cooldown }} seconds</p>
+                            <p>Cost: {{ skill.skill_cost }} mana</p>
+                            <p>Range: {{ skill.skill_range }} </p>
+                            <p>{{ skill.skill_description }}</p>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                   </div>
+                  <p class="u-text u-text-2" style="z-index: 1">{{ champions.champion_story}}</p>
+                    {% if request.user.is_authenticated %}
+                        <form action={% url 'champ_manipulation' champ %} method="post">
+                            {% csrf_token %}
+                            {% if champ_exists %}
+                                <input type="submit" class="btn-Favourite" style="color: black"
+                                       value="Delete from Favourite!" name="Deletebtn">
+                            {% else %}
+                                <input type="submit" class="btn-Favourite" style="color: black"
+                                       value="Add to Favourite!" name="Addbtn">
+                            {% endif %}
+                        </form>
+                    {% endif %}
                 </div>
               </div>
             </div>
@@ -34,7 +66,6 @@
       <div class="u-align-left u-clearfix u-sheet u-valign-middle u-sheet-1">
         <div class="u-align-right u-clearfix u-custom-html u-expanded-width u-custom-html-1">
           <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%; padding-top: 30px;">
-            <iframe src={{ icons_champ.link_to_presentation }} style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;" allowfullscreen="" scrolling="no" allow="encrypted-media;"></iframe>
           </div>
         </div>
       </div>

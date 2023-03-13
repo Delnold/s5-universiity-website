@@ -189,3 +189,33 @@
     margin-bottom: 59px;
   }
 }
+.skill_box{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: center;
+  margin: 0 13px 0 0px;
+  padding-top: 5px;
+  z-index: 1;
+}
+.skill_row {
+  display: flex;
+}
+.info-box
+{
+  display: none;
+}
+.skill_box:hover + .info-box {
+  display: block;
+  width: 300px;
+  padding: 10px;
+  margin-top: 70px;
+  position: absolute;
+  background-color: black;
+  border-style: solid;
+  border-bottom-width: 5px;
+  z-index: 2;
+}
+.info-box:after{
+  display: none;
+}

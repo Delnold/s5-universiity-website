@@ -1,0 +1,10 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div style="background-color: black; border-bottom: 50px;border-bottom-style: solid;border-bottom-width: 50px;">
+    <h2 style="color: whitesmoke; text-align: center">Username: {{ request.user.username }}</h2>
+    {% for champ in favourite_champions %}
+       <h1 style="color: whitesmoke">{{ champ.champion_name }}</h1>
+    {% endfor %}
+    </div>
+{% endblock %}

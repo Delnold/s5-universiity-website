@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+     <link rel="stylesheet" href="{% static "Register.css" %}" media="screen">
+{% endblock %}
+{% block content %}
+    <div style="background-color: black; border-bottom: 50px;border-bottom-style: solid;border-bottom-width: 50px;">
+<form  method="POST">
+    {% csrf_token %}
+    <h2 style="font-weight: bold; text-align: center">Registration</h2>
+    <br>
+    {{ register_form }}
+  <button type="submit">Register</button>
+</form>
+    </div>
+{% endblock %}

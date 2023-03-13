@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+     <link rel="stylesheet" href="{% static "Login.css" %}" media="screen">
+{% endblock %}
+{% block content %}
+    <div style="background-color: black; border-bottom: 50px;border-bottom-style: solid;border-bottom-width: 50px;">
+<form method="POST">
+     {% csrf_token %}
+  <h2 style="font-weight: bold;text-align: center">Login</h2>
+    {{ login_form }}
+  <button type="submit">Login</button>
+</form>
+    </div>
+{% endblock %}
