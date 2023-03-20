@@ -6,8 +6,13 @@
 {% block content %}
     <style>
     .u-section-1 .u-image-1 {
+    {% if champions.champion_icon %}
         background-image: url({{ champions.champion_icon.url }});
         background-size: 300px 300px;
+    {% else %}
+        background-image: url({% static 'images/default_image.png' %});
+        background-size: 300px 300px;
+    {% endif %}
 }
     </style>
 <section class="u-black u-clearfix u-section-1" id="sec-ff1a">

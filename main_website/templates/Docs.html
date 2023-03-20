@@ -8,7 +8,11 @@
       <div class="u-clearfix u-sheet u-sheet-1" style="justify-content: center; align-items: center;gap: 6px;display: flex; margin-top: 100px; flex-wrap: wrap; margin-bottom: 100px; row-gap: 50px;" >
           {% for champ in champions%}
               <a style="width: 120px; height: 120px" href={% url 'champion' champ.champion_name %}>
+              {% if champ.champion_icon %}
               <img width="120px" height="120px" src={{ champ.champion_icon.url }}>
+              {% else %}
+                  <img width="120px" height="120px" src="{% static 'images/default_image.png' %}">
+              {% endif %}
               <h6 style="margin-top: -4px; text-align: center">{{ champ.champion_name }}</h6>
               </a>
           {% endfor %}

@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block css %}
+     <link rel="stylesheet" href="{% static "ChallVideos.css" %}" media="screen">
+{% endblock %}
+
+{% block content %}
+    <div style="background-color: black;">
+    {% for video in chall_videos %}
+        <div style="justify-items: center;">
+        <iframe width="560" height="315" src={{ video.chall_link }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div style="display:inline">
+                <h2 style="color: white;">Author: {{ video.chall_name }}</h2>
+                <h2 style="color:white;">Champion:
+                <a style="color: white" href={% url 'champion' video.champion.champion_name %}>{{ video.champion.champion_name }}</a>
+                </h2>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

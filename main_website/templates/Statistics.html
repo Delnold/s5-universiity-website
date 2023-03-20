@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "About.css" %}" media="screen">
+{% endblock %}
+
+{% block content %}
+    <section class="u-align-center u-black u-clearfix u-section-1" id="sec-2acf">
+      <div class="u-clearfix u-sheet u-sheet-1">
+          <h1>Champions favourites by users: </h1>
+          <img src="data:image/png;base64,{{ chart}}" alt="Champion Favorites Chart">
+        </div>
+      </div>
+    </section>
+{% endblock %}

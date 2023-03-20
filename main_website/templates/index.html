@@ -66,7 +66,7 @@
                     <li class="u-nav-item">
                         {% if request.user.is_authenticated %}
                         <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            style="padding: 10px 10px; margin-right: 90px" href="{% url 'account_page'%}">{{ user.username }}</a>
+                            style="padding: 10px 10px; margin-right: 90px" href="{% url 'account_page' user.username %}">{{ user.username }}</a>
                         {% else %}
                         <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                             style="padding: 10px 10px; margin-right: 90px" href="{% url 'register' %}">Register</a>
@@ -83,7 +83,7 @@
                     </li>
                     <li class="u-nav-item"><a
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                            style="padding: 10px 14px;">Videos</a>
+                            style="padding: 10px 14px;" href="{% url 'chall_videos' %}">Videos</a>
                     </li>
                     <li class="u-nav-item"><a href="{% url 'docs' %}"
                                               class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -93,9 +93,9 @@
                             class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
                             style="padding: 10px 14px;">Presentations</a>
                     </li>
-                    <li class="u-nav-item"><a href="{% url 'about' %}"
+                    <li class="u-nav-item"><a href="{% url 'stats' %}"
                                               class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                              style="padding: 10px 11px 10px 14px;">About</a>
+                                              style="padding: 10px 11px 10px 14px;">Stats</a>
                     </li>
                 </ul>
             </div>
@@ -110,8 +110,8 @@
                             </li>
                             <li class="u-nav-item"><a class="u-button-style u-nav-link">Presentations</a>
                             </li>
-                            <li class="u-nav-item"><a href="{% url 'about' %}"
-                                                      class="u-button-style u-nav-link">About</a>
+                            <li class="u-nav-item"><a href="{% url 'stats' %}"
+                                                      class="u-button-style u-nav-link">Stats</a>
                             </li>
                         </ul>
                     </div>

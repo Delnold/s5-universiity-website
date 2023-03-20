@@ -85,3 +85,8 @@ class Runes(models.Model):
         db_table = 'runes'
     def __str__(self):
         return self.rune_name
+
+class UserExtended(models.Model):
+    username = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_pic = models.FileField(upload_to='users/icon/', blank=True)
+    biography = models.TextField(blank=True, null=True)
