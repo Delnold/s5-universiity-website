@@ -11,5 +11,7 @@ urlpatterns = [
     path('logout/', views.logout_form, name='logout'),
     path('user/<str:username>/', views.account_page, name='account_page'),
     path('champ_exists/<str:champ>/', views.favourite_champ_add_delete, name='champ_manipulation'),
-    path('chall_videos', views.chall_videos, name='chall_videos')
+    path('chall_videos', views.chall_videos, name='chall_videos'),
+    path('excel/', views.champions_to_excel, name='excel_champions'),
+    path('excel_to_champions/', views.excel_to_champions, name='excel_to_champions'),
 ]

@@ -1,5 +1,8 @@
 {% extends 'index.html' %}
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
 {% block content %}
     <div style="background-color: black; border-bottom: 50px;border-bottom-style: solid;border-bottom-width: 50px;">
     <br>
@@ -21,12 +24,41 @@
     {% endif %}
     </div>
     <br><br><br>
+    {% if request.user.is_staff %}
+       <form enctype="multipart/form-data" id="my-form" method="POST" action="{% url 'excel_to_champions' %}">
+        {% csrf_token %}
+        <input type="file" id="file-input" name="excel_file" style="display: none;">
+           <button type="button" id="upload-button" class="btn" style=" background-color: yellow;
+  border: none;
+  color: black;
+  text-align: center;
+  padding: 12px 30px;
+  cursor: pointer;
+  font-size: 20px;"><i class="fa fa-download"></i> Upload Champions Data!</button>
+           <button type="submit" id="submit-button" style="display: none;">Submit</button>
+        </form>
+
+<script>
+    document.getElementById('upload-button').addEventListener('click', function() {
+        document.getElementById('file-input').click();
+    });
+
+    document.getElementById('file-input').addEventListener('change', function() {
+        document.getElementById('submit-button').click();
+    });
+</script>
+        {% endif %}
+    <br><br><br>
     <h3 style="color: whitesmoke">Favourite champions:</h3>
     <div style="white-space: nowrap;">
     {% for champ in favourite_champions %}
         <div style="display: inline-block; text-align: center">
         <a href={% url 'champion' champ.champion_name %}>
-        <img src="{{ champ.champion_icon.url }}">
+            {% if champ.champion_icon != "" %}
+                <img src="{{ champ.champion_icon.url }}">
+            {% else %}
+                <img src="{% static 'images/default_image.png' %}">
+            {% endif %}
        <h5 style="color: whitesmoke">{{ champ.champion_name }}</h5>
         </a>
         </div>

@@ -5,3 +5,15 @@
 .u-section-1 .u-sheet-1 {
   min-height: 500px;
 }
+.buttons {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+}
+ .btn:hover {
+  background-color: RoyalBlue;
+}

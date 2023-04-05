@@ -24,7 +24,7 @@ class ChallVideos(models.Model):
 class Champions(models.Model):
     champion_id = models.AutoField(db_column='CHAMPION_ID', primary_key=True)  # Field name made lowercase.
     champion_name = models.CharField(db_column='CHAMPION_NAME', max_length=25, unique=True)  # Field name made lowercase.
-    champion_icon = models.ImageField(db_column='CHAMPION_ICON', upload_to='champion/icon/', max_length=100, blank=True, null=True, unique=True)  # Field name made lowercase.
+    champion_icon = models.ImageField(db_column='CHAMPION_ICON', upload_to='champion/icon/', max_length=100, blank=True, null=True, unique=False)  # Field name made lowercase.
     champion_story = models.TextField(db_column='CHAMPION_STORY', blank=True, null=True)  # Field name made lowercase.
     users_favourite = models.ManyToManyField(User, blank=True)
     class Meta:
